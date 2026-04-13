@@ -7,3 +7,6 @@ pillow
 pandas
 fpdf
 mlxtend
+flask
+joblib
+gunicorn

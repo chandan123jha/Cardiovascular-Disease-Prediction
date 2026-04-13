@@ -1,0 +1,52 @@
+# Virtual Environments
+.venv/
+.venv-1/
+.venv-2/
+venv/
+env/
+ENV/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Project Files
+*.db
+*.sqlite
+*.sqlite3
+evaluation.db
+
+# Patient Reports
+patient-report/
+*.pdf
+
+# OS
+.DS_Store
+Thumbs.db
+*.log
+
+# Flask
+instance/
+.webassets-cache
+
+# Cache
+*.cache
+*.pyc
+
+# Temporary files
+temp_*.py
+*.tmp
+*.bak

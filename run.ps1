@@ -2,14 +2,13 @@
 # This handles paths with spaces properly
 
 $projectDir = Split-Path -Parent $MyInvocation.MyCommand.Path
-$appDir = Join-Path $projectDir "Cardiovascular-Disease Prediction"
-$pythonExe = Join-Path $projectDir ".venv-1\Scripts\python.exe"
+$pythonExe = Join-Path $projectDir ".venv\Scripts\python.exe"
 
 Write-Host "Starting Cardiovascular Disease Prediction Application..." -ForegroundColor Green
 Write-Host "Project Directory: $projectDir" -ForegroundColor Cyan
 
-Set-Location -Path $appDir
-& $pythonExe heartGUI_main.py
+Set-Location -Path $projectDir
+& $pythonExe app.py
 
 if ($LASTEXITCODE -ne 0) {
     Write-Host "Error: Application failed with exit code $LASTEXITCODE" -ForegroundColor Red

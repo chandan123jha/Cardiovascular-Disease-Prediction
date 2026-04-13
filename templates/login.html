@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('{{ url_for('static', filename='images/15.jpg') }}') no-repeat center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .login-card {
+            width: 360px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 18px;
+            padding: 35px 30px;
+            box-shadow: 0 24px 80px rgba(0,0,0,0.25);
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+        .login-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 18px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0));
+            pointer-events: none;
+        }
+        h2 {
+            margin: 0 0 22px;
+            text-align: center;
+            color: #333;
+            letter-spacing: 1px;
+        }
+        .flash {
+            color: #d32f2f;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .field {
+            margin-bottom: 16px;
+        }
+        .field label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: #1f2937;
+        }
+        .field input {
+            width: 100%;
+            padding: 14px 14px;
+            border-radius: 12px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+        .field input:focus {
+            border-color: #4caf50;
+        }
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 12px;
+            background: #4caf50;
+            color: white;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+        button:hover {
+            background: #3a8a3a;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 18px;
+            color: #555;
+            font-size: 0.95rem;
+        }
+        .footer a {
+            color: #4caf50;
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <h2>Login</h2>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flash">
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        <form method="POST">
+            <div class="field">
+                <label for="username">Username:</label>
+                <input id="username" type="text" name="username" placeholder="Enter Username" required>
+            </div>
+            <div class="field">
+                <label for="password">Password:</label>
+                <input id="password" type="password" name="password" placeholder="Enter Password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <div class="footer">
+            Don't have an account? <a href="{{ url_for('register') }}">Register now</a>
+        </div>
+    </div>
+</body>
+</html>

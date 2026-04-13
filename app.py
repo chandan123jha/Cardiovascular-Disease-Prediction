@@ -209,7 +209,12 @@ def generate_pdf_report(report_text, username, age, sex, chest_pain, trestbps, c
 
 @app.route('/download/<path:filename>')
 def download_file(filename):
-    return send_file(filename, as_attachment=True)
+    try:
+        folder_path = os.path.join(base_dir, 'patient-report')
+        safe_path = os.path.join(folder_path, os.path.basename(filename))
+        return send_file(safe_path, as_attachment=True)
+    except Exception as e:
+        return f"Error downloading file: {str(e)}"
 
 @app.route('/logout')
 def logout():
@@ -217,4 +222,4 @@ def logout():
     return redirect(url_for('home'))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+   app.run(host="0.0.0.0", port=10000)

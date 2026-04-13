@@ -15,14 +15,15 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         .login-card {
-            width: 360px;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 18px;
-            padding: 35px 30px;
-            box-shadow: 0 24px 80px rgba(0,0,0,0.25);
-            backdrop-filter: blur(10px);
-            position: relative;
-        }
+           width: 100%;
+           max-width: 360px;
+           background: rgba(255, 255, 255, 0.95);
+           border-radius: 18px;
+           padding: 35px 30px;
+           box-shadow: 0 24px 80px rgba(0,0,0,0.25);
+           backdrop-filter: blur(10px);
+           position: relative;
+    }
         .login-card::before {
             content: '';
             position: absolute;
@@ -89,6 +90,43 @@
             text-decoration: none;
             font-weight: 600;
         }
+        @media (max-width: 768px) {
+    body {
+        padding: 20px;
+    }
+
+    .login-card {
+        padding: 25px 20px;
+        border-radius: 14px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .field input {
+        padding: 12px;
+        font-size: 0.95rem;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 0.95rem;
+    }
+}
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .login-card {
+        padding: 20px 15px;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+}
     </style>
 </head>
 <body>

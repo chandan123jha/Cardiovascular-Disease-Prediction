@@ -15,14 +15,15 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         .register-card {
-            width: 460px;
+            width: 100%;
+            max-width: 460px;
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
             padding: 32px;
             box-shadow: 0 24px 80px rgba(0,0,0,0.28);
             position: relative;
             overflow: hidden;
-        }
+      }
         .register-card::before {
             content: '';
             position: absolute;
@@ -88,6 +89,52 @@
             text-align: center;
             margin-bottom: 12px;
         }
+        @media (max-width: 768px) {
+    body {
+        padding: 20px;
+    }
+
+    .register-card {
+        padding: 25px 20px;
+        border-radius: 16px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .field-group input,
+    .field-group select {
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 0.95rem;
+    }
+
+    .radio-group {
+        gap: 10px;
+    }
+}
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .register-card {
+        padding: 20px 15px;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    .radio-group {
+        flex-direction: column;
+    }
+}
     </style>
 </head>
 <body>
